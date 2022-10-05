@@ -44,8 +44,13 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     });
 
     // server lắng nghe port 3000
-    app.listen(3000, function () {
-      console.log("listening on 3000");
+    const { PORT = 3000, LOCAL_ADDRESS = "0.0.0.0" } = process.env;
+    app.listen(PORT, LOCAL_ADDRESS, () => {
+      const address = server.address();
+      console.log("server listening at", address);
     });
+    // app.listen(3000, function () {
+    //   console.log("listening on 3000");
+    // });
   })
   .catch((error) => console.error(error));

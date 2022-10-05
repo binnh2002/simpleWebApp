@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
 var MongoClient = require("mongodb").MongoClient;
+var port_number = server.listen(process.env.PORT || 3000);
 var connectionString =
   "mongodb+srv://binnh2002:220298Binh.@cluster0.rmcrbyb.mongodb.net/?retryWrites=true&w=majority";
 app.set("view engine", "ejs");
@@ -44,11 +45,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     });
 
     // server lắng nghe port 3000
-    const { PORT = 3000, LOCAL_ADDRESS = "0.0.0.0" } = process.env;
-    app.listen(PORT, LOCAL_ADDRESS, () => {
-      const address = server.address();
-      console.log("server listening at", address);
-    });
+
+    app.listen(port_number);
     // app.listen(3000, function () {
     //   console.log("listening on 3000");
     // });

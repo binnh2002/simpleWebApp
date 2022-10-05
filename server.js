@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
 var MongoClient = require("mongodb").MongoClient;
-var port_number = server.listen(process.env.PORT || 3000);
+var port_number = app.listen(process.env.PORT || 3000);
 var connectionString =
   "mongodb+srv://binnh2002:220298Binh.@cluster0.rmcrbyb.mongodb.net/?retryWrites=true&w=majority";
 app.set("view engine", "ejs");
